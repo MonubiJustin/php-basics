@@ -1,8 +1,25 @@
 <?php
 
+function add($num1, $num2){
+    return $num1 + $num2;
+}
+
+function sub($num1, $num2){
+    return $num1 - $num2;
+}
+
+function mul($num1, $num2){
+    return $num1 * $num2;
+}
+
+function div($num1, $num2){
+    if ($num2 != 0){
+        return $num1 / $num2;
+    }
+    return null;
+}
+
 $flag = true;
-
-
 while ($flag) {
     $num1 = (float)readline("Enter num1: ");
     $operation = readline("Enter (+, -, *, /): ");
@@ -11,22 +28,22 @@ while ($flag) {
 
     switch ($operation) {
         case "+":
-            $result = $num1 + $num2;
+            $result = add($num1, $num2);
             echo "$num1 + $num2 = $result\n";
             break;
         case "-":
-            $result = $num1 - $num2;
+            $result = sub($num1, $num2);
             echo "$num1 - $num2 = $result\n";
             break;
         case "*":
-            $result = $num1 * $num2;
+            $result = mul($num1, $num2);
             echo "$num1 * $num2 = $result\n";
             break;
         case "/":
-            if ($num2 != 0) {
-                $result = $num1 / $num2;
+            $result = div($num1, $num2);
+            if ($result != null)
                 echo "$num1 / $num2 = $result\n";
-            } else
+            else
                 echo "Zero Division Error\n";
             break;
         default:
